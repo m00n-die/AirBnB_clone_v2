@@ -4,7 +4,7 @@
 ![Latest commit](https://img.shields.io/github/last-commit/B3zaleel/AirBnB_clone_v2/master?style=round-square)
 
 ## Authors
-Check the AUTHORS file for information on AuTHORS and contributors to this Repository
+Check the AUTHORS file for information on the authors and contributors to this Repository
 
 ## Description
 
