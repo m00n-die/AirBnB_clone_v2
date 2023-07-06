@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+m!/usr/bin/env bash
 # Sets up webservers for deployment of static
  if ! dpkg -l nginx | egrep 'îi.*nginx' > /dev/null 2>&1; then
     sudo apt update
@@ -22,7 +22,7 @@ sudo echo -e "$FAKE_HTML" > /data/web_static/releases/test/index.html
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -hR ubuntu:ubuntu /data/
 
-printf %s "server {
+SERVER_CONFIG="server {
     listen 80 default_server;
     listen [::]:80 default_server;
     add_header X-Served-By $HOSTNAME;
@@ -40,6 +40,7 @@ printf %s "server {
       root /var/www/html;
       internal;
     }
-}" > /etc/nginx/sites-available/default
+}"
+sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-available/default"
 
 sudo service nginx restart
