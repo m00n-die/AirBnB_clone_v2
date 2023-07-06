@@ -22,7 +22,7 @@ sudo echo -e "$FAKE_HTML" > /data/web_static/releases/test/index.html
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -hR ubuntu:ubuntu /data/
 
-SERVER_CONFIG="server {
+printf %s "server {
     listen 80 default_server;
     listen [::]:80 default_server;
     add_header X-Served-By $HOSTNAME;
@@ -40,7 +40,6 @@ SERVER_CONFIG="server {
       root /var/www/html;
       internal;
     }
-}"
-sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-available/default"
+}" > /etc/nginx/sites-available/default
 
 sudo service nginx restart
