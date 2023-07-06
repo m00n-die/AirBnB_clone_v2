@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # Sets up webservers for deployment of static
  if ! dpkg -l nginx | egrep 'îi.*nginx' > /dev/null 2>&1; then
     sudo apt update
