@@ -2,6 +2,7 @@
 """distributes an archive to your web servers"""
 import os.path
 from fabric.api import *
+from datetime import datetime
 
 
 env.hosts = ['54.237.84.19', '35.175.130.93']

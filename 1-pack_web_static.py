@@ -1,22 +1,20 @@
 #!/usr/bin/python3
-"""script that creates an archive file"""
-import os.path
-from datetime import datetime
+# a Fabric script that generates a .tgz archive
 from fabric.api import local
+from time import strftime
+from datetime import date
 
 
 def do_pack():
-    """creates an archive"""
-    cur_date = datetime.now()
-    out_dir = "versions/web_static_{}{}{}{}{}{}.tgz".format(cur_date.year,
-                                                            cur_date.month,
-                                                            cur_date.day,
-                                                            cur_date.hour,
-                                                            cur_date.minute,
-                                                            cur_date.second)
-    f os.path.isdir("versions") is False:
-        if local("mkdir -p versions").failed is True:
-            return None
-    if local("tar -cvzf {} web_static".format(out_dir)).failed is True:
+    """generates archive from the contents of the web_static"""
+    cur_date = strftime("%Y%m%d%H%M%S")
+    
+    try:
+        local("mkdir -p versions")
+        local("tar -czvf versions/web_static_{}.tgz web_static/"
+              .format(cur_date))
+
+        return "versions/web_static_{}.tgz".format(cur_date)
+
+    except Exception as e:
         return None
-    return out_dir
