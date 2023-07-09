@@ -11,12 +11,12 @@ def do_pack():
         os.mkdir("versions")
     cur_date = datetime.now()
     out = "versions/web_static_{}{}{}{}{}{}.tgz".format(
-        cur_time.year,
-        cur_time.month,
-        cur_time.day,
-        cur_time.hour,
-        cur_time.minute,
-        cur_time.second
+        cur_date.year,
+        cur_date.month,
+        cur_date.day,
+        cur_date.hour,
+        cur_date.minute,
+        cur_date.second
     )
 
     try:
