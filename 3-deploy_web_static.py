@@ -43,7 +43,7 @@ def do_deploy(archive_path):
     complete = False
 
     try:
-        put(archive_path, "/tmp/{}".format(filename))
+        put(dir_path, "/tmp/{}".format(filename))
         run("mkdir -p {}".format(dir_path))
         run("tar -xzf /tmp/{} -C {}".format(filename, dir_path))
         run("rm -rf /tmp/{}".format(filename))
