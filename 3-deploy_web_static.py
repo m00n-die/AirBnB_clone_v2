@@ -2,12 +2,13 @@
 # DEPLOYS ARCHIVE WITH FABRIC
 import os
 from datetime import datetime
-from fabric.api import env, local, put, run
+from fabric.api import env, local, put, runruns_once
 
 
 env.hosts = ["54.237.84.19", "35.175.130.93"]
 
 
+@runs_once
 def do_pack():
     """creates an archive of web static files"""
     if not os.path.isdir("versions"):
