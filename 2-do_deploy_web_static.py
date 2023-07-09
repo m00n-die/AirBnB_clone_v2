@@ -22,13 +22,13 @@ def do_pack():
         cur_time.minute,
         cur_time.second
     )
-    
+
     try:
         print("Packing web_static to {}".format(out))
         local("tar -cvzf {} web_static".format(out))
         out_size = os.stat(out).st_size
         print("web_static packed: {} -> {} Bytes".format(output, out_size))
-    
+
     except Exception as e:
         return None
 
