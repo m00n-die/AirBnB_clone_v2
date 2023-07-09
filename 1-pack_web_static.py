@@ -1,24 +1,29 @@
 #!/usr/bin/python3
-# a Fabric script that generates a .tgz archive
-from fabric.api import local
-from time import strftime
-from datetime import date
+"""deploys web static with fabric"""
 import os
+from datetime import datetime
+from fabric.api import local
 
 
 def do_pack():
-    """generates archive from the contents of the web_static"""
+    """creates an archive of web static files"""
     if not os.path.isdir("versions"):
         os.mkdir("versions")
-    cur_date = strftime("%Y%m%d%H%M%S")
-    filename = "versions/web_static_{}.tgz web_static/".format(cur_date)
+    cur_date = datetime.now()
+    out = "versions/web_static_{}{}{}{}{}{}.tgz".format(
+        cur_time.year,
+        cur_time.month,
+        cur_time.day,
+        cur_time.hour,
+        cur_time.minute,
+        cur_time.second
+    )
     
     try:
-        print("Packing web_static to {}".format(output))
-        local("tar -cvzf {} web_static".format(output))
-        tar_size = os.stat(filename).st_size
-        print("web_static packed: {} -> {} Bytes".format(output, tar_size))
-        return "versions/web_static_{}.tgz".format(cur_date)
-
+        print("Packing web_static to {}".format(out))
+        local("tar -cvzf {} web_static".format(out))
+        out_size = os.stat(out).st_size
+        print("web_static packed: {} -> {} Bytes".format(output, out_size))
+    
     except Exception as e:
         return None
