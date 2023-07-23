@@ -1,4 +1,4 @@
-ffrom flask import Flask
+from flask import Flask
 """A flas application"""
 
 
