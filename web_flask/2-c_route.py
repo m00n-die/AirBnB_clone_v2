@@ -11,16 +11,17 @@ app.url_map.strict_slashes = False
 def hello_hbnb():
     return "<p>Hello HBNB!</p>"
 
+
 @app.route("/hbnb")
 def only_hbnb():
-	return "<p>HBNB</p>"
+    return "<p>HBNB</p>"
 
 
 @app.route('/c/<text>')
 def show_tex(text):
-	spaced_text = text.replace("_", " ")
-	return f"<p>C { spaced_text }</p>"
+    spaced_text = text.replace("_", " ")
+    return f"<p>C { spaced_text }</p>"
 
 
 if __name__ == '__main__':
-        app.run(host='0.0.0.0', port='5000')
+    app.run(host='0.0.0.0', port='5000')

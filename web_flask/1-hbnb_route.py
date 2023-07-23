@@ -1,7 +1,6 @@
 from flask import Flask
 """A flas application"""
 
-
 app = Flask(__name__)
 """Flask application instance"""
 app.url_map.strict_slashes = False
@@ -11,12 +10,8 @@ app.url_map.strict_slashes = False
 def hello_hbnb():
     return "<p>Hello HBNB!</p>"
 
-<<<<<<< HEAD
 
-@app.route("/hbnb", strict_slashes=False)
-=======
 @app.route("/hbnb")
->>>>>>> refs/remotes/origin/main
 def only_hbnb():
     return "<p>HBNB</p>"
 
