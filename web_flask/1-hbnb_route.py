@@ -1,4 +1,4 @@
-ffrom flask import Flask
+from flask import Flask
 """A flas application"""
 
 
@@ -11,9 +11,11 @@ app.url_map.strict_slashes = False
 def hello_hbnb():
     return "<p>Hello HBNB!</p>"
 
+
 @app.route("/hbnb", strict_slashes=False)
 def only_hbnb():
-	return "<p>HBNB</p>"
+    return "<p>HBNB</p>"
+
 
 if __name__ == '__main__':
-        app.run(host='0.0.0.0', port='5000')
+    app.run(host='0.0.0.0', port='5000')
